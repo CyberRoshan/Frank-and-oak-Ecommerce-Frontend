@@ -21,7 +21,7 @@ export default function MobileSideBar({sidebarStatus}) {
         <div className=' w-full h-full px-5'>
           <div>
         <Disclosure>
-      <DisclosureButton className="py-3 text-[18px] font-semibold flex items-center justify-between border border-red-600 w-full">Women's New Arrivals
+      <DisclosureButton className="py-3 text-[18px] font-semibold flex items-center justify-between border border-red-600 w-full">Women&apos;s New Arrivals
       <IoMdAdd size={20} fontWeight={400} />
       </DisclosureButton>
       <DisclosurePanel className=" duration-500 ">
