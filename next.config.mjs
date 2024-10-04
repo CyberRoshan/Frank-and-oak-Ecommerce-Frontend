@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        unoptimized: true,  // Disables Next.js image optimization
-      },
+  // No need for unoptimized: true, so we remove it
 };
 
 export default nextConfig;
