@@ -26,7 +26,7 @@ export default function MobileSideBar({sidebarStatus}) {
       </DisclosureButton>
       <DisclosurePanel className=" duration-500 ">
       <ul className="space-y-2">
-            <li className="text-[15px] font-semibold cursor-pointer hover:underline bg-red-700">
+            <li className="text-[15px] font-semibold cursor-pointer hover:underline">
               Shop All
             </li>
             <li className="text-[15px] font-semibold cursor-pointer hover:underline">
