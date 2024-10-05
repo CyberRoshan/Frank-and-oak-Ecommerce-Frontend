@@ -45,15 +45,18 @@ export default function Header() {
         </div>
         <ul className='flex gap-3 sm:gap-5'>
           <li>
+            <Link href={"/pages/search"}>
           <CiSearch className='sm:w-7 sm:h-7 h-5 w-5'  />
+          </Link>
           </li>
           <li className='cursor-pointer' onClick={()=>setLoginStatus(true)}>
           <FaRegUserCircle className='sm:w-[22px]  sm:h-7 h-5 w-[18px] ' />
             <Login loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
           </li>
           <li>
-            <Link href={"/user-dashboard/wishlist"}></Link>
+            <Link href={"/user-dashboard/wishlist"}>
           <FaRegHeart className='sm:w-[22px] sm:h-7 h-5 w-[18px] cursor-pointer' />
+            </Link>
           </li>
           <li className='cursor-pointer' onClick={()=>setCartStatus(true)}>
           <BsBagPlus className='sm:w-[22px] sm:h-7 h-5 w-[18px]' />
