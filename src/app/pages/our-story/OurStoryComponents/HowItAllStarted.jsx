@@ -40,7 +40,7 @@ function OurValues() {
             </div>
             <div>
                 <h4 className='text-[22px] font-medium pb-3'>Inspire innovation</h4>
-                <p className='text-[13px] font-semibold'>We are a forward-thinking brand that delivers cutting-edge products to fit our customers' modern and evolving lifestyles.</p>
+                <p className='text-[13px] font-semibold'>We are a forward-thinking brand that delivers cutting-edge products to fit our customers modern and evolving lifestyles.</p>
             </div>
             <div>
                 <h4 className='text-[22px] font-medium pb-3'>Be authentic</h4>
