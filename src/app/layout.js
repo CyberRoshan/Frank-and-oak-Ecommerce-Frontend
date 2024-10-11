@@ -18,3 +18,24 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
+// Developed Pages:-
+
+// 1. http://localhost:3000/checkouts
+// 2. http://localhost:3000/collections
+// 3. http://localhost:3000/pages/cart
+// 4. http://localhost:3000/pages/our-story
+// 5. http://localhost:3000/pages/search
+// 6. http://localhost:3000/pages/thankyou
+// 7. http://localhost:3000/product/product-details/1234567890
+// 8. http://localhost:3000/user-dashboard/account
+// 9. http://localhost:3000/user-dashboard/change-password
+// 10. http://localhost:3000/user-dashboard/order
+// 11. http://localhost:3000/user-dashboard/wishlist
+// 12. http://localhost:3000/user-dashboard/order/order-details
+
+// Modals:
+// 1. Login Signup Modal
+// 2. View Cart Modal
+// 3. Mobile Sidebar

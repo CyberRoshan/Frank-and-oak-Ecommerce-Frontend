@@ -10,7 +10,7 @@ export default function Account() {
   let [resetPassword,setResetPassword]=useState(false)
   return (
     <>
-      <section className="pt-[60px] px-[30px]">
+      <section className="pt-28 px-[30px]">
         <BreadCrumb prop1={"Home"} prop2={"My Account"} prop3={"Account settings"} />
         <div className='grid lg:grid-cols-[20%_auto] grid-cols-1 gap-10'>
           <AccountSideBar/>

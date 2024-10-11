@@ -9,8 +9,8 @@ export default function Login({loginStatus,setLoginStatus}) {
   
   return (
     <section className={` ${loginStatus ? "block" : "hidden"} w-full h-screen flex bg-[rgba(0,0,0,0.4)] items-center justify-center  fixed  left-0 top-0 z-[9999999]`}>
-        <form className='relative lg:w-[42%] md:w-[80%] h-[700px] overflow-scroll  px-10 pt-5 pb-8 bg-[#F9F9F9] overflow-x-hidden mt-5'>
-          <button onClick={()=>setLoginStatus(false)} className=" z-[999999999] absolute top-3 right-3 border-red-700" >
+        <form className={`${loginStatus ? "opacity-100 translate-y-0 duration-500 " : "opacity-0 -translate-y-full duration-500 "} relative lg:w-[42%] md:w-[80%] w-full h-screen md:h-[700px] overflow-scroll  px-10 pt-5 pb-8 bg-[#F9F9F9] overflow-x-hidden mt-5`}>
+          <button onClick={()=>setLoginStatus(false)} className=" z-[999999999] absolute top-3 right-3" >
         <IoCloseSharp className="w-8 h-8" />
           </button>
             <div className='text-center'>
@@ -94,12 +94,12 @@ function SignUpBox({setCompStatus,compStatus}) {
     </div>
      </div>
      <div>
-     <div class="flex gap-2 pt-3">
+     <div className="flex gap-2 pt-3">
                     <input
                         id="red-checkbox"
                         type="checkbox"
                         value=""
-                        class="w-6 h-6  text-white bg-gray-100 border-gray-300 rounded focus:ring-black"
+                        className="w-6 h-6  text-white bg-gray-100 border-gray-300 rounded focus:ring-black"
                     />
                     <label className="text-[14px] font-semibold">
                         Yes, sign me up to the Frank And Oak newsletter to never miss out on product launches and exclusive promotions.

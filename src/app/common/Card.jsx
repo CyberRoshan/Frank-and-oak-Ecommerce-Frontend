@@ -1,19 +1,20 @@
 "use client"
 
 import { useState } from "react"
-import { QuickAddButton } from "../HomeComponents/ThisJustIn"
 
 export function Card() {
-    let [quickAdd,setQuickAdd]=useState(false)
+    let [sizequickAdd,setSizeQuickAdd]=useState(false)
   return (
     <div className='cursor-pointer group'>
                 <div className=' w-full h-full'>
-                    <div className='group relative'>
+                    <div className=' relative'>
                     <span className='bg-black text-white absolute right-2 top-2 z-[9999] text-[8px] sm:text-[10px] font-medium uppercase px-0.5 sm:px-1 py-0.5'>few left</span>
                     <img className='h-full w-full object-cover' src="/images/buttonUpSweater.webp" alt="Womens Denim" />
                     <img className='h-full w-full duration-300 z-[999] absolute top-0 group-hover:block hidden object-cover' src="/images/buttonUpSweater2.webp" alt="Womens Denim" />
-                    <button onClick={()=>setQuickAdd(true)} className={`${setQuickAdd ? <QuickAddButton/> : ""} w-[95%] text-center box-border bg-white py-3 text-[14px] font-medium absolute bottom-2 translate-x-[-50%] left-[50%]  group-hover:block hidden`}>Quick Add
+                    <button onMouseEnter={()=>setSizeQuickAdd(true)} onMouseLeave={()=>setSizeQuickAdd(false)} className={`${sizequickAdd  ? "group-hover:hidden z-[999]" : "group-hover:block z-[999999]"} w-[95%] text-center box-border bg-white py-3 text-[14px] font-medium absolute bottom-2 translate-x-[-50%]  left-[50%] hidden`}>Quick Add
+                   
                     </button>
+                    {sizequickAdd ? <SizeSelectionButton setSizeQuickAdd={setSizeQuickAdd} /> : ""}
                     </div>
                 <h5 className='sm:text-[14px] text-[12px] flex gap-3 mt-2 font-semibold'>The Button-Up Sweater Vest in Space Blue
                     <span className=' rounded-full hover:bg-[#EBECEE] h-7 w-7 p-1'>
@@ -29,5 +30,33 @@ export function Card() {
                 </div>
                 </div>
             </div>
+  )
+}
+
+
+export function QuickAddButton() {
+  return (
+    <button className="w-full border border-green-600 py-1 ">
+      <ul className="w-full border flex justify-around border-red-700">
+        <li className="py-2 px-6 hover:bg-black hover:text-white">xl</li>
+        <li className="py-2 px-6  hover:bg-black hover:text-white">xl</li>
+        <li className="py-2 px-6  hover:bg-black hover:text-white">xl</li>
+        <li className="py-2 px-6  hover:bg-black hover:text-white">xl</li>
+        <li className="py-2 px-6  hover:bg-black hover:text-white">xl</li>
+      </ul>
+    </button>
+  );
+}
+
+function SizeSelectionButton({setSizeQuickAdd}) {
+  return (
+    <ul onMouseEnter={()=>setSizeQuickAdd(true)} onMouseLeave={()=>setSizeQuickAdd(false)} className="w-[95%] py-1.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1  text-center box-border bg-white text-[14px] font-medium absolute bottom-2 translate-x-[-50%]  z-[9999] left-[50%]">
+                        <li><button className="text-sm font-semibold duration-300 text-black hover:text-white bg-white hover:bg-black px-5 py-2  uppercase">xxs</button></li>
+                        <li><button className="text-sm font-semibold duration-300 text-black hover:text-white bg-white hover:bg-black px-5 py-2  uppercase">xs</button></li>
+                        <li><button className="text-sm font-semibold duration-300 text-black hover:text-white bg-white hover:bg-black px-5 py-2  uppercase">s</button></li>
+                        <li><button className="text-sm font-semibold duration-300 text-black hover:text-white bg-white hover:bg-black px-5 py-2  uppercase">m</button></li>
+                        <li><button className="text-sm font-semibold duration-300 text-black hover:text-white bg-white hover:bg-black px-5 py-2  uppercase">l</button></li>
+                        <li><button className="text-sm font-semibold duration-300 text-black hover:text-white bg-white hover:bg-black px-5 py-2  uppercase">xl</button></li>
+                    </ul>
   )
 }

@@ -1,10 +1,14 @@
 "use client"
+import YouMightAlsoLiked from "@/app/common/YouMightAlsoLiked";
+import ProductReview from "@/app/HomeComponents/ProductReview";
 import React, { useState } from "react";
+import ProductReviews from "../ProductComponents/ProductReviews";
 
 export default function ProductDetails() {
   let [faq,setFaq]=useState(false)
   return (
-    <section className="w-full grid lg:grid-cols-[60%_38%] md:grid-cols-[40%_60%] grid-cols-1 justify-between mt-[50px] p-2 ">
+    <>
+    <section className="pt-12 w-full grid lg:grid-cols-[60%_38%] md:grid-cols-[40%_60%] grid-cols-1 justify-between mt-[50px] p-2 ">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
         <img src="https://www.frankandoak.com/cdn/shop/files/2110369-002.01_1200x.jpg?v=1725030315" alt="" />
         <img src="https://www.frankandoak.com/cdn/shop/files/2110369-002.02_1200x.jpg?v=1725030315" alt="" />
@@ -162,5 +166,9 @@ export default function ProductDetails() {
         </div>
       </div>
     </section>
+    <YouMightAlsoLiked heading={"You might also like"}/>
+    <YouMightAlsoLiked heading={"Recently Viewed"}/>
+    <ProductReviews/>
+    </>
   );
 }
