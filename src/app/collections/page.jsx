@@ -3,16 +3,13 @@ import React, { useState } from 'react'
 import { FaRegSquareFull } from 'react-icons/fa6';
 import { SiWindows11 } from "react-icons/si";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { QuickAddButton } from '../HomeComponents/ThisJustIn';
-import Header from '../common/Header';
 import { Card } from '../common/Card';
 
 export default function Category() {
   let [settingGrid,setSettingGrid]=useState(false)
   return (
     <>
-    <Header/>
-    <section className='grid lg:grid-cols-[17%_83%] md:grid-cols-[25%_75%] justify-between mt-[50px] md:px-5 px-0 pt-[30px]'>
+    <section className='grid lg:grid-cols-[17%_83%] md:grid-cols-[25%_75%] justify-between mt-[50px] md:px-5 px-0 pt-14'>
         <CategorySidebar/>
         <div className='sticky top-0 p-4 h-screen overflow-y-scroll catListScroll'>
             <div className='w-full border-b border-gray-300 py-6 flex items-center md:justify-end justify-between'>

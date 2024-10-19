@@ -4,8 +4,10 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { BsArrowRight } from "react-icons/bs";
 import { useState } from "react";
+import Link from "next/link";
 export default function Login({loginStatus,setLoginStatus}) {
   let [compStatus,setCompStatus]=useState(true)
+  let [otpAfterSignUp,setotpAfterSignUp]=useState(false)
   
   return (
     <section className={` ${loginStatus ? "block" : "hidden"} w-full h-screen flex bg-[rgba(0,0,0,0.4)] items-center justify-center  fixed  left-0 top-0 z-[9999999]`}>
@@ -14,8 +16,8 @@ export default function Login({loginStatus,setLoginStatus}) {
         <IoCloseSharp className="w-8 h-8" />
           </button>
             <div className='text-center'>
-                <h3 className='text-[22px] font-semibold mb-1'>Welcome back!</h3>
-                <p className='text-[14px] font-semibold'>Log in to enjoy your perks</p>
+                <h3 className='text-[22px] font-semibold mb-1'>{compStatus ? "Welcome back!" : "Welcome !"}</h3>
+                <p className='text-[14px] font-semibold'>{compStatus ? "Log in" : "Sign up" } to enjoy your perks</p>
             </div>
             <div className="flex justify-between py-8 px-6">
             <div className="text-center space-y-1.5">
@@ -38,7 +40,8 @@ export default function Login({loginStatus,setLoginStatus}) {
               <p className="text-[12px]  font-semibold">Exclusive sale perks</p>
             </div>
             </div>
-            { compStatus ? <LoginBox /> : <SignUpBox setCompStatus={setCompStatus} compStatus={compStatus} />}
+            { compStatus ? <LoginBox /> : <SignUpBox setCompStatus={setCompStatus} compStatus={compStatus} otpAfterSignUp={otpAfterSignUp} setotpAfterSignUp={setotpAfterSignUp} />}
+            {otpAfterSignUp ? "" :
             <div>
               <div className="text-[13px] text-center font-semibold">Social login</div>
               <div className="lg:flex block justify-between py-6 lg:space-y-0 space-y-2">
@@ -46,12 +49,25 @@ export default function Login({loginStatus,setLoginStatus}) {
                 <button className="border-2 hover:bg-[#CCCCCC] lg:w-auto w-full duration-500 border-black py-2.5 px-10 text-[14px] font-medium flex items-center justify-center gap-3"><FaGoogle className="text-[16px]" /> Sign in with Google</button>
               </div>
             </div>
+            }
+            {compStatus ?
             <div className="text-center">
               <div className="text-[13px] text-center font-semibold">Create an account</div>
               <div className="pt-3 text-[14px] font-semibold">
               Don&apos;t have an account? <span onClick={()=>setCompStatus(false)} className="underline underline-offset-4 cursor-pointer"> Sign up <BsArrowRight className="inline" /></span>
               </div>
             </div>
+            :
+            <div className="text-center pt-10 text-[18px] font-medium">
+  Get <b>15% off</b> and <b>Free Delivery</b> on your first order!<br />
+  <span className="text-[12px] font-medium">
+    Limited time offer. Shop now and enjoy exclusive discounts on our best-sellers! 
+    Sign up today and be the first to hear about new arrivals, promotions, and more.
+  </span><br />
+ 
+</div>
+
+            }
 
         </form>
     </section>
@@ -65,16 +81,20 @@ function LoginBox() {
     <div className="flex flex-col gap-3 py-6">
     <input className="p-3 border text-[#757575] text-[14px] font-semibold border-[#757575] " type="text" placeholder="Email Address" />
     <input className="p-3 border text-[#757575] text-[14px] font-semibold border-[#757575] " type="tel" placeholder="Password" />
+    <Link href="/account/forget-password">
     <span className="text-[13px] font-semibold underline">Forgot Password?</span>
+    </Link>
     <button  className="p-3.5 mt-2 bg-black text-white font-semibold">Log In</button>
   </div>
   )
 }
 
 
-function SignUpBox({setCompStatus,compStatus}) {
+function SignUpBox({setCompStatus,compStatus,otpAfterSignUp,setotpAfterSignUp}) {
   return (
-    <div className="flex flex-col gap-3 py-6">
+    <>
+    {otpAfterSignUp ? <OtpSignUp/> :
+      <div className="flex flex-col gap-3 py-6">
        <div className="pt-3 text-[14px] text-center font-semibold">
        Already have an account? <span onClick={()=>setCompStatus(true)} className="underline underline-offset-4 cursor-pointer">  Log in <BsArrowRight className="inline" /></span>
        </div>
@@ -105,10 +125,53 @@ function SignUpBox({setCompStatus,compStatus}) {
                         Yes, sign me up to the Frank And Oak newsletter to never miss out on product launches and exclusive promotions.
                     </label>
       </div>
-      <button className="p-3.5 mt-4 w-full bg-black text-white font-semibold">Sign Up</button>
+      <button onClick={()=>setotpAfterSignUp(true)} className="p-3.5 mt-4 w-full bg-black text-white font-semibold">Sign Up</button>
      </div>
         </div>
        </div>
     </div>
+    }
+    </>
+  )
+}
+
+
+function OtpSignUp() {
+  return (
+    <div class="relative px-6 pt-10 pb-9  mx-auto w-full">
+    <div class="mx-auto flex w-full max-w-md flex-col space-y-16">
+
+      <div>
+        <form>
+          <div class="flex flex-col space-y-10">
+            <div class="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
+              <div class="w-16 h-16">
+                <input required class="w-full h-full flex flex-col items-center justify-center bg-white text-center px-5 outline-none rounded-lg shadow-sm font-bold border-black text-lg  focus:bg-gray-50 focus:ring-1 ring-blue-700" max={1} type="tel" name="" id=""/>
+              </div>
+              <div class="w-16 h-16 ">
+                <input required class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-lg shadow-sm font-bold border-black text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" max={1} type="tel" name="" id=""/>
+              </div>
+              <div class="w-16 h-16 ">
+                <input required class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-lg shadow-sm font-bold border-black text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" max={1} type="tel" name="" id=""/>
+              </div>
+              <div class="w-16 h-16 ">
+                <input required class="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-lg shadow-sm font-bold border-black text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" max={1} type="tel" name="" id=""/>
+              </div>
+            </div>
+
+            <div class="flex flex-col space-y-5">
+              <div className="mx-auto">
+                <button className='border-2 py-2.5 px-16 bg-black hover:bg-white text-white duration-500 hover:text-black hover:shadow-[5px_5px_0px_0px_#666] border-black font-medium rounded-md'>Confirm OTP</button>
+              </div>
+
+              <div class="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
+                <p>Didn't recieve code?</p> <div class="flex hover:underline flex-row items-center text-blue-600 cursor-pointer">Resend OTP</div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   )
 }

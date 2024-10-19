@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { BsBagPlus } from "react-icons/bs";
-import Login from '../modals/Login';
+import Login from '../auth/Login';
 import MobileSideBar from '../modals/MobileSideBar';
 import Link from 'next/link';
 import { MenMegaMenu, OurStoryMegaMenu, ThisJustInMegaMenu, WomenMegaMenu } from './MegaMenu';

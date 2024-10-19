@@ -11,7 +11,7 @@ export default function LayoutWrapper({ children }) {
   console.log(router)
 
   useEffect(()=>{
-    if(router === "/checkouts" || router==="/pages/thankyou"){
+    if(router === "/checkouts" || router==="/pages/thankyou" || router==="/account/otp-verification" || router==="/account/forget-password"){
       setRemoveCommons(false)
       
     }
