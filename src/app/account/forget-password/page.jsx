@@ -8,7 +8,7 @@ export default function ForgetPassword() {
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div class="w-full p-10 bg-white rounded-lg shadow-md  md:mt-0 sm:max-w-md sm:p-8">
           <h1 class="mb-1 text-xl font-bold leading-tight text-center tracking-tight text-gray-900 md:text-2xl">
-              Forgot your password?
+              Forget your password?
           </h1>
           <p class="font-normal text-gray-500 text-center">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
           <form class="mt-4 space-y-6 lg:mt-5 md:space-y-5" action="#">
@@ -26,7 +26,7 @@ export default function ForgetPassword() {
               </div>
               <div>
               <Link href="/account/otp-verification">
-              <button className='border-2 w-full py-2 px-5 bg-black hover:bg-white text-white duration-500 hover:text-black hover:shadow-[5px_5px_0px_0px_#666] border-black font-medium rounded-md'>Reset password</button>
+              <button className='border-2 w-full py-2 px-5 bg-black hover:bg-white text-white duration-500 hover:text-black hover:shadow-[5px_5px_0px_0px_#666] border-black font-medium rounded-md'>Forget password</button>
               </Link>
               </div>
           </form>
